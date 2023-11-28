@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Tests for QKART Regression">
+    <parameter name="TC1_Username" value="testUser" />
+    <parameter name="TC1_Password" value="abc@123" />
+    <parameter name="TC2_Username" value="testUser" />
+    <parameter name="TC2_Password" value="abc@123" />
+    <parameter name="TC7_ListOfProductsToAddToCart" value="Tan Leatherette Weekender Duffle;Xtend Smart Watch" />
+
+    <listeners>
+        <listener class-name = "QKART_TESTNG.ListenerClass"></listener>
+    </listeners>
+    <test name = "Test Execution using testNG" verbose="2">
+        <groups>
+            <run>
+              <include name = "Sanity_test"></include>
+              <include name = "Regression_Test"></include>
+            </run>
+        </groups>
+
+        <parameter name="TC3_ProductNameToSearchFor" value="YONEX" />
+        <parameter name="TC4_ProductNameToSearchFor" value="Running Shoes" />
+        <parameter name="TC5_ProductNameToSearchFor" value="YONEX Smash Badminton Racquet" />
+        <parameter name="TC5_ProductNameToSearchFor2" value="Tan Leatherette Weekender Duffle" />
+        <parameter name="TC5_AddressDetails" value="Addr line 1  addr Line 2  addr line 3" />
+        <parameter name="TC6_ProductNameToSearch1" value="Xtend Smart Watch" />
+        <parameter name="TC6_ProductNameToSearch2" value="Yarine Floor Lamp" />
+        <parameter name="TC8_ProductName" value="Tan Leatherette Weekender Duffle" />
+        <parameter name="TC8_Qty" value="60" />
+        <parameter name="TC11_ContactusUserName" value="crio user" />
+        <parameter name="TC11_ContactUsEmail" value="criouser@gmail.com" />
+        <parameter name="TC11_QueryContent" value="Testing the contact us page" />
+        <parameter name="TC12_ProductNameToSearch" value="YONEX Smash Badminton Racquet" />
+        <parameter name="TC12_AddresstoAdd" value="Addr line 1  addr Line 2  addr line 3" />
+
+        <packages>
+            <package name="QKART_TESTNG"></package>
+        </packages>
+        <classes>
+            <class name="QKART_TESTNG.ListenerClass"></class>
+        </classes>
+    </test>
+</suite>

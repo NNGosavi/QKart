@@ -1,0 +1,441 @@
+{
+  "instruction_set": [
+    {
+      "description": "Testcase 01: Ensure register page is opened",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "Navigate"
+        },
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "/register"
+        }
+      ],
+      "error_out": "Testcase01: Ensure that the url /register is visited",
+      "is_enabled": true,
+      "hint": "Ensure that the register page is visited to perform registration"
+    },
+    {
+      "description": "Testcase 01: Ensure that the password is entered",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "abc@123"
+        }
+      ],
+      "error_out": "Testcase01: Ensure that the password is entered in the register page",
+      "is_enabled": true,
+      "hint": "Is the password abc@123 being entered during the registration process?"
+    },
+    {
+      "description": "Testcase 01: Verify that confirm password is entered",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "abc@123"
+        }
+      ],
+      "error_out": "Testcase01: Unable to detect confirm password entry abc@123",
+      "is_enabled": true,
+      "hint": "Is the confirm password abc@123 being entered during the registration process? "
+    },
+    {
+      "description": "Testcase 01: Verify redirects to '/login' page on successful registration",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "GetUrl"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "/login"
+        }
+      ],
+      "error_out": "Testcase01: Ensure that the registration is successful and redirects to '/login'",
+      "is_enabled": true,
+      "hint": "Are we checking if the url changes to /login after performing a registration?"
+    },
+    {
+      "description": "Testcase 02: Re-registration",
+      "validations": [
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "/register"
+        }
+      ],
+      "error_out": "Testcase02: No check to ensure that the re-registration was blocked",
+      "is_enabled": true,
+      "hint": "After re-registration, was the url validated to see if it stayed on the /register page only?"
+    },
+    {
+      "description": "Testcase 03 : Search Box functionality - valid keyword typed in search box",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "YONEX"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "TypeElement"
+        }
+      ],
+      "error_out": "Testcase03: code to search for item yonex is not found",
+      "is_enabled": true,
+      "hint": "Is there code for typing in yonex in the search box ? "
+    },
+    {
+      "description": "Testcase 03 : Search Box functionality - read search result titles",
+      "validations": [
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "YONEX Smash Badminton Racquet"
+        }
+      ],
+      "error_out": "Testcase03: Assertion of the search result was not detected in Testcase 03",
+      "is_enabled": true,
+      "hint": "Is there code for getting the text of displayed search results as YONEX Smash Badminton Racquet"
+    },
+    {
+      "description": "Testcase03: Search Box functionality - invalid keyword typed in search box",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "Gesundheit"
+        }
+      ],
+      "error_out": "Testcase03: searching for item Gesundheit was not found",
+      "is_enabled": true,
+      "hint": "Is there code for typing in the text Gesundheit in the search box ?"
+    },
+    {
+      "description": "Testcase 04 :Verify size chart link presence",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "GetElementText"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "SIZE CHART"
+        }
+      ],
+      "error_out": "Testcase04: unable to find code that reads the link text 'SIZE CHART'",
+      "is_enabled": true,
+      "hint": "Is there code getting the text of the link element and verify it to be 'SIZE CHART'"
+    },
+    {
+      "description": "Testcase 04 : Verify table header content",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "GetElementText"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "UK/INDIA"
+        }
+      ],
+      "error_out": "Testcase04: Verification of the table header UK/INDIA was not detected",
+      "is_enabled": true,
+      "hint": "Is there code the table header and ensure that it contains UK/INDIA"
+    },
+    {
+      "description": "Testcase 05 : Verify address is being typed in the address box",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "Addr line 1 addr Line 2 addr line 3"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "TypeElement"
+        }
+      ],
+      "error_out": "Testcase05: Entering the address in the address box was not identified",
+      "is_enabled": true,
+      "hint": "Has the address box been filled with the appropriate address: 'Addr line 1 addr Line 2 addr line 3'"
+    },
+    {
+      "description": "Testcase 06 : Verify presence of item in cart",
+      "validations": [
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "Xtend Smart Watch"
+        }
+      ],
+      "error_out": "Testcase06:  Validation check to read the presence of watch in the cart is not detected",
+      "is_enabled": true,
+      "hint": "Are we reading the contents of the cart and ensuring it contains: Xtend Smart Watch"
+    },
+    {
+      "description": "Testcase 06 : Verify place order works correctly",
+      "validations": [
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "/thanks"
+        }
+      ],
+      "error_out": "Testcase06:  Ensuring that the place order url's value is correct was not present",
+      "is_enabled": true,
+      "hint": "Is the URL of the final page checked if it contains /thanks ?"
+    },
+    {
+      "description": "Testcase 07 : Verify cart content is persisted after logout ",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "GetElementText"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "Stylecon 9 Seater RHS Sofa Set"
+        }
+      ],
+      "error_out": "Testcase07: verifying if the cart contains Stylecon 9 Seater RHS Sofa Set is not done",
+      "is_enabled": true,
+      "hint": "Is the contents of the cart checked if it contains the text: Stylecon 9 Seater RHS Sofa Set"
+    },
+    {
+      "description": "Testcase 08 : Verify place order fails on low balance",
+      "validations": [
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "You do not have enough balance in your wallet for this purchase"
+        }
+      ],
+      "error_out": "Testcase08: validation of presence of error message was not validated",
+      "is_enabled": true,
+      "hint": "Are we validating the error message if the text is: You do not have enough balance in your wallet for this purchase "
+    },
+    {
+      "description": "Testcase 09 :Verify that product added to cart is available when a new tab is opened",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "SwitchToWindow"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "SwitchToWindow"
+        }
+      ],
+      "error_out": "Testcase09:Switching to a new Window was not validated",
+      "is_enabled": true,
+      "hint": "Are we opening the URL on a new window and navigating to it ? "
+    },
+    {
+      "description": "Testcase 10 : Verify Privacy Policy and ToS are opened in new Window",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "GetWindows"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "GetWindows"
+        }
+      ],
+      "error_out": "Testcase 10 : Opening and switching to two windows are not present",
+      "is_enabled": true,
+      "hint": "Are you getting the list of windows available ?"
+    },
+    {
+      "description": "Testcase 10 : Verify Privacy Policy and ToS are opened in new Window",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "SwitchToWindow"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "SwitchToWindow"
+        }
+      ],
+      "error_out": "Testcase 10 : Opening and switching to two windows are not present",
+      "is_enabled": true,
+      "hint": "Are you switching to the privacy policy window ?"
+    },
+    {
+      "description": "Testcase 10 : Verify Privacy Policy and ToS are opened in new Window",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "CloseWindow"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "CloseWindow"
+        }
+      ],
+      "error_out": "Testcase 10 : Opening and switching to two windows are not present",
+      "is_enabled": true,
+      "hint": "Are you Closing the Opened Window (1)  "
+    },
+    {
+      "description": "Testcase 10 : Verify Privacy Policy and ToS are opened in new Window",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "CloseWindow"
+        },
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "CloseWindow"
+        }
+      ],
+      "error_out": "Testcase 10 : Opening and switching to two windows are not present",
+      "is_enabled": true,
+      "hint": "Are you Closing the Opened Window (2)  ?"
+    },
+    {
+      "description": "Testcase 10 : Verify Privacy Policy and ToS are opened in new Window",
+      "validations": [
+        {
+          "object_notation": "RESPONSE",
+          "operator": "contains",
+          "expected_value": "SwitchToWindow"
+        }
+      ],
+      "error_out": "Testcase 10 : Opening and switching to two windows are not present",
+      "is_enabled": true,
+      "hint": "Are you swiching to the parent window ?"
+    },
+    {
+      "description": "Testcase 11 : Verify if the user is able to add name in the contact us form",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "crio user"
+        }
+      ],
+      "error_out": "Testcase 11 : Validation of Contact us form verification failed",
+      "is_enabled": true,
+      "hint": "Is the user name field enetered as crio user ?"
+    },
+    {
+      "description": "Testcase 11 : Verify if the user is able to add email in the contact form",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "criouser@gmail.com"
+        }
+      ],
+      "error_out": "Testcase 11 : Validation of Contact us form verification failed",
+      "is_enabled": true,
+      "hint": "Is the user email entered as criouser@gmail.com?"
+    },
+    {
+      "description": "Testcase 11 : Verify if the user is able to add message in the contact form",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "Testing the contact us page"
+        }
+      ],
+      "error_out": "Testcase 11 : Validation of Contact us form verification failed",
+      "is_enabled": true,
+      "hint": "Is the message entered as Testing the contact us page?"
+    },
+    {
+      "description": "Testcase 12 : Verify that the advertisement iframes are interactable",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "SwitchToFrame"
+        }
+      ],
+      "error_out": "Testcase 12 :",
+      "is_enabled": true,
+      "hint": " Are you Switching over to advertisement frame 1 ?"
+    },
+    {
+      "description": "Testcase 12 : Verify that the advertisement iframes are interactable",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "ClickElement"
+        }
+      ],
+      "error_out": "Testcase 12 :",
+      "is_enabled": true,
+      "hint": " Are you Clicking the buy now button on the advertisement page?"
+    },
+    {
+      "description": "Testcase 12 : Verify that the advertisement iframes are interactable",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "SwitchToFrame"
+        }
+      ],
+      "error_out": "Testcase 12 :",
+      "is_enabled": true,
+      "hint": " Are you Switching over to advertisement frame 2 ?"
+    },
+    {
+      "description": "Testcase 12 : Verify that the advertisement iframes are interactable",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "ClickElement"
+        }
+      ],
+      "error_out": "Testcase 12 :",
+      "is_enabled": true,
+      "hint": "Are you Clicking the buy now button on the advertisement2 page?"
+    },
+    {
+      "description": "Testcase 12 : Verify that the advertisement iframes are interactable",
+      "validations": [
+        {
+          "object_notation": "COMMAND",
+          "operator": "contains",
+          "expected_value": "SwitchToParentFrame"
+        }
+      ],
+      "error_out": "Testcase 12 :",
+      "is_enabled": true,
+      "hint": "Are you switching over to the parent frame ?"
+    }
+  ]
+}
